@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 interface MarqueeProps {
   text: string;
@@ -19,35 +20,37 @@ export default function Marquee({
 }: MarqueeProps) {
   const repeats = 6;
   const repeated = Array(repeats).fill(text).join(" ");
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [velocity, setVelocity] = useState(1);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let lastScroll = window.scrollY;
-    let raf: number;
-    let target = 1;
+    const track = trackRef.current;
+    if (!track) return;
 
-    const tick = () => {
+    let velocity = 1;
+    let lastScroll = window.scrollY;
+
+    const onTick = () => {
       const current = window.scrollY;
       const delta = Math.abs(current - lastScroll);
       lastScroll = current;
-      // Boost speed based on scroll velocity, max 4x
-      target = 1 + Math.min(delta * 0.03, 3);
-      setVelocity((prev) => prev + (target - prev) * 0.1);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
-  const effectiveDuration = speed / velocity;
+      // Gentle boost: max 1.8x, with soft easing back to 1
+      const target = 1 + Math.min(delta * 0.015, 0.8);
+      velocity += (target - velocity) * 0.06;
+
+      track.style.setProperty("--marquee-duration", `${speed / velocity}s`);
+    };
+
+    gsap.ticker.add(onTick);
+    return () => {
+      gsap.ticker.remove(onTick);
+    };
+  }, [speed]);
 
   return (
-    <div
-      ref={containerRef}
-      className={`overflow-hidden whitespace-nowrap py-6 ${className}`}
-    >
+    <div className={`overflow-hidden whitespace-nowrap py-6 ${className}`}>
       <div
+        ref={trackRef}
         className={`inline-flex ${
           direction === "left"
             ? "animate-marquee-left"
@@ -55,7 +58,7 @@ export default function Marquee({
         }`}
         style={
           {
-            "--marquee-duration": `${effectiveDuration}s`,
+            "--marquee-duration": `${speed}s`,
           } as React.CSSProperties
         }
       >
