@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #050505;
+  --color-foreground: #e8e6e3;
+  --color-accent: #6366f1;
+  --color-accent-light: #818cf8;
+  --color-accent-secondary: #a855f7;
+  --color-accent-tertiary: #ec4899;
+  --color-surface: #0f0f0f;
+  --color-surface-light: #1a1a1a;
+  --color-border: #1a1a1a;
+  --color-text-secondary: #8a8a8a;
+  --font-sans: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-fira-code);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #222 #050505;
+}
+
+::selection {
+  background: #6366f1;
+  color: white;
+}
+
+html {
+  background: #050505;
+}
+
+body {
+  background: #050505;
+  color: #e8e6e3;
+  cursor: none;
+}
+
+/* ---------- Gradient text ---------- */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1, #a855f7, #ec4899, #6366f1);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ---------- Glass morphism ---------- */
+.glass {
+  background: rgba(15, 15, 15, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ---------- Glow ---------- */
+.glow {
+  box-shadow:
+    0 0 20px rgba(99, 102, 241, 0.15),
+    0 0 60px rgba(99, 102, 241, 0.05);
+}
+
+/* ---------- Outlined text ---------- */
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(232, 230, 227, 0.15);
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Marquee ---------- */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.animate-marquee-left {
+  animation: marquee-left var(--marquee-duration, 30s) linear infinite;
+}
+.animate-marquee-right {
+  animation: marquee-right var(--marquee-duration, 30s) linear infinite;
+}
+
+/* ---------- Magnetic element base ---------- */
+.magnetic-element {
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none !important;
+  }
+}
+
+/* ---------- Custom scrollbar for WebKit ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
