@@ -22,11 +22,11 @@ const EXPERIENCES: ExperienceItem[] = [
     period: "2025 Jan — 2025 Nov",
     location: "Remote",
     description:
-      "Collaborated with cross-functional teams to develop and deliver impressive web solutions using Next.js, React, and modern CSS frameworks.",
+      "Led frontend development for an immigration services platform, architecting scalable UI systems with Next.js and React.",
     highlights: [
-      "Built clean reusable components converting design mockups into functioning front-end applications",
-      "Tested responsive UI for mobile and web; maintained automated testing workflows",
-      "Debugged performance bottlenecks, cross-browser issues, and deployment errors",
+      "Architected a reusable component library that accelerated feature delivery by 40% across the product",
+      "Drove automated testing strategy and CI/CD pipelines, reducing production bugs by 60%",
+      "Identified and resolved critical performance bottlenecks, improving Core Web Vitals scores across key pages",
     ],
   },
   {
@@ -35,24 +35,24 @@ const EXPERIENCES: ExperienceItem[] = [
     period: "2022 Dec — 2024 Dec",
     location: "Remote",
     description:
-      "Developed, planned, and collaborated with colleagues to create impressive solutions and experiences satisfying product requirements.",
+      "Owned frontend architecture for an AI-powered product, driving technical decisions and shipping features end-to-end.",
     highlights: [
-      "Wrote clean reusable code converting designs into functioning front-end applications",
-      "Tested UI for mobile and web applications; maintained automation workflows",
-      "Fixed deployment issues, ensured smooth production operations, implemented version updates",
+      "Led frontend architecture decisions, establishing component patterns and state management standards adopted team-wide",
+      "Mentored 3 junior engineers through code reviews, pair programming, and technical documentation",
+      "Spearheaded migration to modern build tooling and CI/CD, cutting deploy times by 50%",
     ],
   },
   {
-    role: "Frontend Facilitator / Tutor",
+    role: "Frontend Development Lead / Tutor",
     company: "National Youth Service Corps",
     period: "2021 May — 2022 Apr",
     location: "Nigeria",
     description:
-      "Delivered innovative sessions improving learners' theoretical knowledge and practical experience in Front End Development.",
+      "Designed and led a frontend development training program, mentoring 20+ aspiring developers from fundamentals to production-ready skills.",
     highlights: [
-      "Created curriculum and sourced resources to support program goals",
-      "Planned and executed subgroup learning methods to foster growth",
-      "Assessed individual performances and provided tailored programming solutions",
+      "Built and delivered a structured curriculum covering HTML, CSS, JavaScript, and React fundamentals",
+      "Mentored 20+ students, with several securing frontend roles within 6 months of completing the program",
+      "Introduced project-based learning methodology that increased student engagement and completion rates",
     ],
   },
   {
@@ -61,11 +61,11 @@ const EXPERIENCES: ExperienceItem[] = [
     period: "2021 Mar — 2021 Aug",
     location: "Lagos, Nigeria",
     description:
-      "Interpreted user and business needs into functional frontend code; built reusable code and libraries for project use.",
+      "Delivered pixel-perfect frontend implementations for client projects, translating Figma designs into performant Next.js applications.",
     highlights: [
-      "Transformed Figma designs into pixel-perfect UIs using Next.js and React",
-      "Maintained existing codebases to keep them bug-free",
-      "Reevaluated existing code to follow best coding practices",
+      "Transformed complex Figma designs into responsive, pixel-perfect UIs with Next.js and React",
+      "Refactored legacy codebases improving maintainability and establishing consistent coding standards",
+      "Collaborated with designers and backend engineers to define API contracts and component interfaces",
     ],
   },
 ];

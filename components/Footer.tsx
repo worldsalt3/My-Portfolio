@@ -45,8 +45,8 @@ export default function Footer() {
             RH<span className="text-[#6366f1]">.</span>
           </div>
           <p className="text-sm text-[#8a8a8a] leading-relaxed max-w-xs">
-            Front-end engineer with 4+ years building scalable web applications
-            using React, Next.js, and TypeScript.
+            Senior frontend engineer architecting scalable web applications with
+            React, Next.js, and TypeScript.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Riliwan Hassan. All rights reserved.
         </span>
         <span className="font-[family-name:var(--font-fira-code)]">
-          Designed & Built with ♥
+          Designed & Built by Riliwan Hassan
         </span>
       </div>
     </footer>

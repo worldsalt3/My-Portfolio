@@ -9,10 +9,10 @@ const Scene3D = dynamic(() => import("./Scene3D"), { ssr: false });
 const FIRST_NAME = "RILIWAN";
 const LAST_NAME = "HASSAN";
 const ROLES = [
-  "Frontend Engineer",
-  "React Developer",
-  "Next.js Specialist",
-  "UI Architect",
+  "Senior Frontend Engineer",
+  "React Architect",
+  "Technical Lead",
+  "UI/UX Engineer",
 ];
 
 export default function Hero() {

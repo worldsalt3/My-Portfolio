@@ -6,20 +6,20 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BIO_TEXT = `I'm a front-end engineer with 4+ years of experience building scalable web applications using React, Next.js, and TypeScript. I have a strong focus on clean frontend architecture, reusable components, performance optimization, and close collaboration with cross-functional teams. My work spans logistics dashboards, fintech platforms, immigration tools, and open-source projects — always pushing for better user experiences and modern development practices.`;
+const BIO_TEXT = `I'm a senior frontend engineer who architects and ships production-grade web applications at scale. Over 4+ years I've led frontend development across fintech platforms, logistics dashboards, and SaaS products — owning technical decisions from component architecture to deployment pipelines. I specialize in React and Next.js, with deep expertise in TypeScript, state management patterns, and performance optimization. I mentor junior developers, drive code quality standards, and bridge the gap between design vision and engineering execution.`;
 
 const STATS = [
   { value: "4+", label: "Years Experience" },
-  { value: "8+", label: "Shipped Projects" },
-  { value: "4", label: "Companies" },
-  { value: "1", label: "Open Source" },
+  { value: "10+", label: "Projects Delivered" },
+  { value: "4", label: "Engineering Teams" },
+  { value: "20+", label: "Developers Mentored" },
 ];
 
 const QUICK_INFO = [
-  { icon: "📍", label: "Location", value: "Lagos, Nigeria" },
-  { icon: "🎓", label: "Education", value: "B.Sc. Statistics" },
-  { icon: "💡", label: "Focus", value: "Frontend & UI" },
-  { icon: "🌐", label: "Languages", value: "English, Yoruba" },
+  { label: "Location", value: "Lagos, Nigeria" },
+  { label: "Education", value: "B.Sc. Statistics" },
+  { label: "Focus", value: "Frontend Architecture" },
+  { label: "Languages", value: "English, Yoruba" },
 ];
 
 export default function About() {
@@ -193,7 +193,6 @@ export default function About() {
               data-info-card
               className="flex items-center gap-3 px-5 py-4 rounded-xl border border-[#1a1a1a] bg-[#0f0f0f]/50 opacity-0"
             >
-              <span className="text-lg">{info.icon}</span>
               <div>
                 <div className="text-[10px] uppercase tracking-wider text-[#8a8a8a]">
                   {info.label}

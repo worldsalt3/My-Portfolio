@@ -22,25 +22,26 @@ const siteUrl = "https://riliwanhassan.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Riliwan Hassan | Frontend Engineer",
+  title: "Riliwan Hassan | Senior Frontend Engineer",
   description:
-    "Front-end Engineer with 4+ years of experience building scalable web applications using React, Next.js, and TypeScript.",
+    "Senior Frontend Engineer with 4+ years architecting scalable web applications with React, Next.js, and TypeScript.",
   keywords: [
-    "Frontend Developer",
-    "React",
+    "Senior Frontend Developer",
+    "React Architect",
     "Next.js",
     "TypeScript",
-    "Web Developer",
+    "Frontend Architecture",
     "Riliwan Hassan",
     "Lagos",
     "Software Engineer",
+    "Technical Lead",
   ],
   authors: [{ name: "Riliwan Hassan" }],
   creator: "Riliwan Hassan",
   openGraph: {
-    title: "Riliwan Hassan | Frontend Engineer",
+    title: "Riliwan Hassan | Senior Frontend Engineer",
     description:
-      "Front-end Engineer building scalable web applications with React, Next.js, and TypeScript.",
+      "Senior Frontend Engineer architecting scalable web applications with React, Next.js, and TypeScript.",
     url: siteUrl,
     siteName: "Riliwan Hassan",
     locale: "en_US",
@@ -48,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Riliwan Hassan | Frontend Engineer",
+    title: "Riliwan Hassan | Senior Frontend Engineer",
     description:
-      "Front-end Engineer building scalable web applications with React, Next.js, and TypeScript.",
+      "Senior Frontend Engineer architecting scalable web applications with React, Next.js, and TypeScript.",
   },
   robots: {
     index: true,
@@ -77,9 +78,9 @@ export default function RootLayout({
               "@type": "Person",
               name: "Riliwan Hassan",
               url: siteUrl,
-              jobTitle: "Frontend Engineer",
+              jobTitle: "Senior Frontend Engineer",
               description:
-                "Front-end Engineer with 4+ years of experience building scalable web applications using React, Next.js, and TypeScript.",
+                "Senior Frontend Engineer with 4+ years architecting scalable web applications with React, Next.js, and TypeScript.",
               email: "mailto:riliwanhazzan@gmail.com",
               address: {
                 "@type": "PostalAddress",
