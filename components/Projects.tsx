@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import MagneticButton from "./MagneticButton";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,16 +104,21 @@ const FILTER_CATEGORIES = ["All", "Full Stack", "Frontend", "Open Source"];
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const imageRef = useRef<HTMLDivElement>(null);
+  const projectUrl = project.link || project.github;
 
   return (
-    <div
+    <a
       data-project-card
-      className="flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] h-[70vh] relative group"
+      href={projectUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex-shrink-0 w-[85vw] md:w-[45vw] lg:w-[35vw] h-[60vh] relative group block cursor-pointer"
+      data-cursor-label="View"
     >
       {/* Card */}
       <div className="relative h-full rounded-2xl border border-[#1a1a1a] bg-[#0a0a0a] overflow-hidden flex flex-col">
         {/* Image area with clip-path reveal */}
-        <div className="relative h-[55%] overflow-hidden bg-[#111]">
+        <div className="relative h-[50%] overflow-hidden bg-[#111]">
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0a0a0a]/90 z-10" />
           {/* Image/gradient with clip-path reveal */}
           <div
@@ -141,7 +145,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6 flex flex-col justify-between">
+        <div className="flex-1 p-6 flex flex-col justify-between relative z-20">
           <div>
             <h3 className="text-xl md:text-2xl font-[family-name:var(--font-space-grotesk)] font-bold text-[#e8e6e3] mb-2 group-hover:text-[#6366f1] transition-colors duration-300">
               {project.title}
@@ -164,33 +168,26 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               ))}
             </div>
 
-            {/* Links */}
+            {/* Link indicator */}
             <div className="flex items-center gap-4">
-              {project.link && (
-                <MagneticButton strength={0.2}>
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-[#e8e6e3] hover:text-[#6366f1] transition-colors flex items-center gap-1"
-                    data-cursor-label="Visit"
-                  >
-                    Live ↗
-                  </a>
-                </MagneticButton>
-              )}
-              {project.github && (
-                <MagneticButton strength={0.2}>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-[#8a8a8a] hover:text-[#e8e6e3] transition-colors flex items-center gap-1"
-                    data-cursor-label="GitHub"
-                  >
-                    Code ↗
-                  </a>
-                </MagneticButton>
+              <span className="text-sm text-[#e8e6e3] group-hover:text-[#6366f1] transition-colors flex items-center gap-1">
+                {project.link ? "View Live ↗" : "View Code ↗"}
+              </span>
+              {project.link && project.github && (
+                <span
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    window.open(
+                      project.github,
+                      "_blank",
+                      "noopener,noreferrer",
+                    );
+                  }}
+                  className="text-sm text-[#8a8a8a] hover:text-[#e8e6e3] transition-colors flex items-center gap-1 cursor-pointer"
+                >
+                  Code ↗
+                </span>
               )}
             </div>
           </div>
@@ -199,7 +196,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         {/* Hover border glow */}
         <div className="absolute inset-0 rounded-2xl border border-transparent group-hover:border-[#6366f1]/20 transition-colors duration-500 pointer-events-none" />
       </div>
-    </div>
+    </a>
   );
 }
 
